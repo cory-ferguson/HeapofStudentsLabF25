@@ -128,3 +128,68 @@ string getFirstName()
 string getLastName()
 
 string getCredHours()
+
+
+# Main file
+
+// don't forget to include <vector>
+
+loadStudents(students vector)
+    create an ifstream for infile
+    create a string for current line
+    
+    open students.csv using inFile
+    
+    while(getline(inFile, currentLine))
+        read each line into current line
+        create a new instance of Students on the heap
+        call student init using currentLine    
+        push student to back of vector // use pushback function
+        close file
+
+printStudents(students vector)
+    create a reference to the student vector
+    loop through the student vector
+        call printStudent from student class
+
+showStudentNames(students vector)
+    create a reference to the student vector
+    loop through student vector
+        call getLastFirst from student class
+
+findStudent(students vector)
+    create a reference to the vector of students
+    create a string target
+    create a bool for notFound set to true
+    ask user for last name and store that in target
+    loop through all students
+        use string.find method
+        if it's found
+            call printStudent from student class
+        if not found
+            print "Student not found"
+
+delStudents(students vector)
+    loop through student vector
+        delete the element
+
+
+menu()
+    print 0) quit, 1) print all student names, 2) print all student data, 3) find student
+    ask user to type 0-3
+    if input == "0" 
+        exit the program
+        call deleteStudents() // unsure if I have to do this here or in main
+    elseif input == "1"
+        call showStudentNames
+    elseif input == "2"
+        call printStudents()
+    else input == "3"
+        call findStudent
+
+main()
+    create the student vector 
+    call loadStudents()
+    call menu()
+    call deleteStudents()
+
